@@ -6,11 +6,10 @@ Created on Tue Sep 24 18:52:27 2024
 """
 
 import numpy as np
-import pyPERSA as PS
 
 from pyPERSA import process_facet
-from pyPERSA import read_taps as tp
-from pyPERSA import pywopwop as PWW
+from pyPERSA import read_taps as tp # functions to read Helios extracts tap files
+from pyPERSA import pywopwop as PWW # functions to write data to wopwop input format
 
 ###################################
 #%% INPUTS - FACET FILE & BIN FILE
