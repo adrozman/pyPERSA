@@ -1,9 +1,7 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """
-Created on Wed Oct  2 11:49:20 2024
-
-@author: arozman
+These functions are taken from Dylan Jude's readTaps code distributed with Helios.
+Reads tap files of field variables and converts to useful values.
+See example file for usage
 """
 
 import numpy as np
