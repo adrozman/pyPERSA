@@ -54,8 +54,8 @@ for i, name in enumerate(tapnames):
     # define paths
     facetfile = facet_folder + name + ".facet"
     tapfile = "extracts/tap_" + f"{i:02}.bin"
-    geometry_output_file="wopwop_input_files/" +name+ f"/{name}_Geometry.dat"
-    loading_output_file="wopwop_input_files/" +name+ f"/{name}_Leometry.dat"
+    geometry_output_file="wopwop_input_files/" +name+ "/Geometry.dat"
+    loading_output_file="wopwop_input_files/" +name+ "/Loading.dat"
     
     os.makedirs("wopwop_input_files/"+name,exist_ok=True)
 
