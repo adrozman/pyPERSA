@@ -119,18 +119,18 @@ def process_facet(filename, conversion = 1):
     Exception
         If a face has a zero-magnitude normal (i.e., degenerate geometry).
     """
-    xyz, tri_connectivity, quad_connectivity = read_facet(filename)
+    coordinates, tri_connectivity, quad_connectivity = read_facet(filename)
 
-    xyz *= conversion
+    coordinates *= conversion
 
-    normals = np.zeros((xyz.shape[1], 3))
+    normals = np.zeros((coordinates.shape[0], 3))
 
     if tri_connectivity is not None:
         nnode_face = 3
-        for i in range(tri_connectivity.shape[1]):
-            r1 = xyz[tri_connectivity[0,i]-1] # subtract 1 because connectivity
-            r2 = xyz[tri_connectivity[1,i]-1] # indices start at 1 and python
-            r3 = xyz[tri_connectivity[2,i]-1] # indices start at 0
+        for i in range(tri_connectivity.shape[0]):
+            r1 = coordinates[tri_connectivity[i,0]-1] # subtract 1 because connectivity
+            r2 = coordinates[tri_connectivity[i,1]-1] # indices start at 1 and python
+            r3 = coordinates[tri_connectivity[i,2]-1] # indices start at 0
 
             v1 = r2 - r1
             v2 = r3 - r1
@@ -146,11 +146,11 @@ def process_facet(filename, conversion = 1):
 
     elif quad_connectivity is not None:
         nnode_face = 4
-        for i in range(quad_connectivity.shape[1]):
-            r1 = xyz[quad_connectivity[0,i]-1]
-            r2 = xyz[quad_connectivity[1,i]-1]
-            r3 = xyz[quad_connectivity[2,i]-1]
-            r4 = xyz[quad_connectivity[3,i]-1]
+        for i in range(quad_connectivity.shape[0]):
+            r1 = coordinates[quad_connectivity[i,0]-1]
+            r2 = coordinates[quad_connectivity[i,1]-1]
+            r3 = coordinates[quad_connectivity[i,2]-1]
+            r4 = coordinates[quad_connectivity[i,3]-1]
 
             v1 = r3 - r1
             v2 = r4 - r2

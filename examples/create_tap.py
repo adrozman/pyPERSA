@@ -1,8 +1,9 @@
 # import functions to read facets, write them in format for Helios extracts module
 from pyPERSA import read_facet, write_extract_points, write_extracts_py
+os
 
 patch_folder = '.'
-tap_write_dir= 'taps'
+tap_write_dir= 'extracts'
 
 patches = [f for f in os.listdir(patch_folder) if f.endswith('.facet')]
 tapnames = []
@@ -23,3 +24,6 @@ for patch in patches:
 # write tap_extracts.py file for all tap files just written.
 #%%
 write_extracts_py(tapnames, frequency=6)
+
+# move tap_extracts into extracts folder, now it's good to go into a helios run
+os.system('cp tap_extracts.py extracts')

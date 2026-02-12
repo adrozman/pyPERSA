@@ -1,7 +1,7 @@
 """
-@author: admro
+Functions that write text files in the correct format for Helios extracts module and writes the
+tap_extracts.py file necessary for the extracts module to work.
 """
-
 import numpy as np
 import os
 
@@ -28,7 +28,7 @@ def write_extract_points(Coordinates, tap_write_dir = 'Taps', tapname="Tap"):
     print("-----------------------------------------------------")
     print(f"wrote {tapname} to {tap_write_dir}")
             
-def write_extracts_py(tapnames, frequency=1):
+def write_extracts_py(tapnames, reference="frameID=1", frequency=1):
     """
     Generates the Python script 'tap_extracts.py' necessary for Helios extracts module 
     using the list of tap names and extract frequency.
@@ -37,7 +37,10 @@ def write_extracts_py(tapnames, frequency=1):
     ----------
     tapnames : list of str
         A list of filenames corresponding to the tap files stored in the 'extracts/' directory.
-    frequency : int, optional
+    reference : str
+        String of "frameID=N" or "bodyID=N" coordinate frame to attach taps to. Try adding a tap manually
+        in higen, exporting inputs, and looking at the new tap_extracts.py to know this value.
+    frequency : int
         The sampling frequency for the extraction. Defaults to 1.
     """
     ntapfiles = len(tapnames)
@@ -52,7 +55,7 @@ def write_extracts_py(tapnames, frequency=1):
             f.write(f'        frequency={frequency}\n')
             
             f.write(f"        x = [[float(a) for a in b.split()] for b in open('extracts/{tapnames[i]}').readlines()]\n")
-            f.write('        bodyID = 2\n')
+            f.write('        ' + reference + '\n')
         
         print("-----------------------------------------------------")
         print(f"wrote tap_extracts.py file for {ntapfiles} tap files")

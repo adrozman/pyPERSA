@@ -1,9 +1,8 @@
 """
 These functions are taken from Dylan Jude's readTaps code distributed with Helios.
 Reads tap files of field variables and converts to useful values.
-See example file for usage
+See example files for usage
 """
-
 import numpy as np
 import sys
 import pickle
