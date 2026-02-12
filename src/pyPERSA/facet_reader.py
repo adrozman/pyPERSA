@@ -24,7 +24,7 @@ def read_facet(facetfile):
         if no quadrilaterals are found. Indices correspond to columns in `coordinates`.
     """
     print("--------------------------------------------------")
-    print("facetReader initiated ... reading facet file")
+    print(" reading facet file" + facetfile)
     print("-------------------------------------------------")
 
     with open(facetfile, 'r') as f:
@@ -83,7 +83,7 @@ def read_facet(facetfile):
                 print(" Stopping...")
                 return
 
-    print("Successfully Read User Facet File")
+    print("Successfully Read Facet File")
     print("--------------------------------------------------------")
 
     return coordinates, tri_connectivity, quad_connectivity

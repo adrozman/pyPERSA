@@ -27,4 +27,5 @@ To use on future logins, activate the virtualenv:
 source ~/persa/bin/activate
 ```
 
-see examples folder for sample usage
+## Usage Overview
+

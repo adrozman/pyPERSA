@@ -1,8 +1,9 @@
 """
 These functions are taken from Dylan Jude's readTaps code distributed with Helios.
 Reads tap files of field variables and converts to useful values.
-See example files for usage
+See example file for usage
 """
+
 import numpy as np
 import sys
 import pickle
@@ -35,7 +36,7 @@ def tapinfo(taps_file):
 def readtaps(taps_file,itstart=0,ntime=-1):
     
     print("--------------------------------------------------")
-    print("readTaps_perm.py initiated ... reading .bin file")
+    print("reading .bin file")
     print("-------------------------------------------------")
     
     global stationary
@@ -54,8 +55,8 @@ def readtaps(taps_file,itstart=0,ntime=-1):
     size = np.ndarray((-1), dtype=np.byte, buffer=bindata, offset=0).size # size of whole dataset
     loc,q,x,t = np.int64(0),[],[],[]
     
-    print(f"  readTaps found {npts} points.")
-    print(f"  readTaps found {nt} timesteps.")
+    print(f"  readtaps found {npts} points.")
+    print(f"  readtaps found {nt} timesteps.")
     
     while(loc < size):
         nq, npts = np.ndarray((2),       dtype=np.intc,   buffer=bindata, offset=loc)
