@@ -103,8 +103,8 @@ for i, name in enumerate(tapnames):
     myWopwopData.loading_ref_frame = 'ground_fixed'
     myWopwopData.set_loading_comment('Unstructured file - loading')
 
-    myWopwopData.add_UnstructuredZone(name, xyz, normals, \
-                quad_connectivity=quad_connectivity, \
+    myWopwopData.add_UnstructuredZone(name, xyz.T, normals.T, \
+                quad_connectivity=quad_connectivity.T, \
                 loading_data=loading_data, time_steps=v['T'])
 
     # this prints an overview of geometry/loading inputted, and what will be written.
